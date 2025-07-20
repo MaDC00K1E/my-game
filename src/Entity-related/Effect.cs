@@ -13,7 +13,7 @@
             set
             {
                 if (value < 0)
-                    throw new Exception("TurnsLeft must be greater than 0");
+                    throw new ArgumentOutOfRangeException(nameof(value), " must be greater than 0");
 
                 if (value > this._turnsLeft && this._stackable == Stacka.NonStackable)
                     this._turnsLeft = value;
@@ -36,5 +36,7 @@
 
             return this._turnsLeft == 0;
         }
+
+        public abstract void TakeEffect();
     }
 }
